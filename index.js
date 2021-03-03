@@ -7,6 +7,8 @@ const bdd = require("./bdd.json");
 //Modules
 const fs = require("fs");
 
+
+//****************Status****************\\
 client.on("ready", () => {
     console.log(`Connecté en tant que ${client.user.tag} !`)
     client.user.setStatus("online")
@@ -15,8 +17,21 @@ client.on("ready", () => {
     }, 100)
 });
 
+
+//****************Commandes****************\\
 client.on("message", message => {
-    //Futur commande
+});
+
+//****************Pour tout les serveurs****************\\
+client.on("guildCreate", guild => {
+    console.log(`Le  bot a été ajouté à la guilde ${guild.name} !`);
+    bdd[guild.id] = {}
+    bdd[guild.id]["Nom"] = guild.name
+    Savebdd();
+});
+
+client.on("guildDelete", guild => {
+    console.log(`Le bot a été retiré de la guilde ${guild.name} !`)
 });
 
 //****************Commande de fonction****************\\
