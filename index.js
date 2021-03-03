@@ -1,6 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const token = require("./config.json");
+const prefix = "r/";
+const bdd = require("./bdd.json");
+
+//Modules
+const fs = require("fs");
 
 client.on("ready", () => {
     console.log(`Connecté en tant que ${client.user.tag} !`)
@@ -8,6 +13,10 @@ client.on("ready", () => {
     setTimeout(() => {
         client.user.setActivity("aider", { type: "COMPETING" })
     }, 100)
+});
+
+client.on("message", message => {
+    //Futur commande
 });
 
 //****************Commande de fonction****************\\
