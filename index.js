@@ -10,4 +10,11 @@ client.on("ready", () => {
     }, 100)
 });
 
+//****************Commande de fonction****************\\
+function Savebdd() {
+    fs.writeFile("./bdd.json", JSON.stringify(bdd, null, 4), (err) => {
+        if (err) message.channel.send("Une erreur est survenue.");
+    });
+}
+
 client.login(token.token)
